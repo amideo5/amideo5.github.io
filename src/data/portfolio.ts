@@ -306,7 +306,6 @@ export const projects: Project[] = [
       'Backend API and SQL integration',
     ],
     metrics: [],
-    github: 'https://github.com/amideo5/Vuforia-AR-App',
     palette: {
       from: '#17172d',
       via: '#494080',
@@ -334,7 +333,6 @@ export const projects: Project[] = [
       'Wallet and transaction-related functionality',
     ],
     metrics: [],
-    github: 'https://github.com/amideo5/E-wallet-App',
     palette: {
       from: '#10202c',
       via: '#245c79',
@@ -362,7 +360,6 @@ export const projects: Project[] = [
       'Express.js backend',
     ],
     metrics: [],
-    github: 'https://github.com/amideo5/Data-Visualization-Charts',
     palette: {
       from: '#152329',
       via: '#2f6870',
@@ -389,7 +386,6 @@ export const projects: Project[] = [
       'Delete tasks',
     ],
     metrics: [],
-    github: 'https://github.com/amideo5/react-to-do-list',
     palette: {
       from: '#17271d',
       via: '#3e704d',
@@ -415,7 +411,6 @@ export const projects: Project[] = [
       'Kernel-level systems exploration',
     ],
     metrics: [],
-    github: 'https://github.com/amideo5/MajorProject',
     palette: {
       from: '#20242a',
       via: '#505a65',
