@@ -1,0 +1,151 @@
+
+name: Update FinanceApp Release in Apps Catalog
+
+on:
+  repository_dispatch:
+    types:
+      - finance-app-release
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apps-json-finance-app-update
+  cancel-in-progress: false
+
+jobs:
+  update-apps-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      # --------------------------------------------------
+      # CHECKOUT WEBSITE REPOSITORY
+      # --------------------------------------------------
+      - name: Checkout website repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # --------------------------------------------------
+      # FETCH LATEST FINANCE APP RELEASE
+      # --------------------------------------------------
+      - name: Fetch FinanceApp latest release
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl --fail --silent --show-error \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/amideo5/finance-app/releases/latest \
+            --output finance-release.json
+
+          python3 -m json.tool finance-release.json > /dev/null
+
+          echo "Latest release fetched successfully."
+
+      # --------------------------------------------------
+      # UPDATE apps.json
+      # --------------------------------------------------
+      - name: Update apps.json
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 <<'PY'
+          import json
+          from datetime import datetime, timezone
+
+          APPS_FILE = "public/apps.json"
+          RELEASE_FILE = "finance-release.json"
+
+          with open(APPS_FILE, "r", encoding="utf-8") as f:
+              apps_data = json.load(f)
+
+          with open(RELEASE_FILE, "r", encoding="utf-8") as f:
+              release_data = json.load(f)
+
+          app = next(
+              (
+                  item for item in apps_data.get("apps", [])
+                  if item.get("id") == "finance-app"
+              ),
+              None
+          )
+
+          if app is None:
+              raise SystemExit(
+                  "App with id 'finance-app' was not found in apps.json"
+              )
+
+          assets = []
+
+          for asset in release_data.get("assets", []):
+              assets.append({
+                  "name": asset.get("name", ""),
+                  "size": asset.get("size", 0),
+                  "browser_download_url": asset.get(
+                      "browser_download_url", ""
+                  ),
+                  "content_type": asset.get(
+                      "content_type", "application/octet-stream"
+                  )
+              })
+
+          published_at = release_data.get("published_at")
+
+          if not published_at:
+              published_at = release_data.get("created_at")
+
+          if not published_at:
+              published_at = datetime.now(
+                  timezone.utc
+              ).isoformat().replace("+00:00", "Z")
+
+          app["updated_at"] = published_at
+
+          app["release"] = {
+              "tag_name": release_data.get("tag_name", ""),
+              "name": release_data.get("name") or release_data.get(
+                  "tag_name", ""
+              ),
+              "body": release_data.get("body") or "",
+              "published_at": published_at,
+              "html_url": release_data.get("html_url", ""),
+              "assets": assets
+          }
+
+          with open(APPS_FILE, "w", encoding="utf-8") as f:
+              json.dump(apps_data, f, indent=4, ensure_ascii=False)
+              f.write("\n")
+
+          print("apps.json updated successfully.")
+          print("Release:", release_data.get("tag_name"))
+          print("Assets:", len(assets))
+          PY
+
+      # --------------------------------------------------
+      # COMMIT AND PUSH
+      # --------------------------------------------------
+      - name: Commit updated apps.json
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add public/apps.json
+
+          if git diff --cached --quiet; then
+            echo "apps.json has no changes."
+            exit 0
+          fi
+
+          git commit -m "chore: update FinanceApp release metadata"
+
+          git push
+
+          echo "apps.json committed and pushed successfully."
