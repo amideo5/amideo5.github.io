@@ -1,0 +1,59 @@
+{
+    "apps": [
+        {
+            "id": "finance-app",
+            "name": "Your Money Space",
+            "shortDescription": "Track spending, investments, budgets and shared expenses in one app.",
+            "description": "Your Money Space – Manage Your Money in One Place\n\nYour Money Space is a personal finance app designed to help you organize your money, track spending, manage accounts, monitor investments and share expenses with friends.\n\nWhether you're managing everyday expenses, tracking your investments or settling shared bills, Your Money Space brings your financial activity together in one convenient place.\n\nKey Features\n\nPersonal Finance Dashboard\nGet an overview of your financial activity, income, expenses and recent transactions.\n\nExpense & Income Tracking\nRecord income and expenses, categorize transactions, add notes and payment details, and review your spending history.\n\nManage Multiple Accounts\nOrganize your finances across different accounts and keep your financial records structured.\n\nBudgets & Financial Insights\nSet category-based budgets and review your financial activity to better understand your spending habits.\n\nShared Expenses\nSplit expenses with friends using equal or custom allocations. Track outstanding balances, repayment requests and settlements.\n\nInvestment Portfolio Tracking\nOrganize your investments, including Fixed Deposits (FDs), Recurring Deposits (RDs), Mutual Funds, stocks and other assets.\n\nPortfolio Analytics\nTrack invested amounts, portfolio values, returns and investment activity with portfolio insights and performance calculations.\n\nInvestment Ledger\nKeep investment activity separate from everyday expenses and track contributions, withdrawals and transfers.\n\nFinancial Profiles\nOrganize finances into separate profiles to manage different financial spaces.\n\nStatements\nReview your transaction history and generate or share statements where supported.\n\nTake Control of Your Financial Life\n\nYour Money Space brings everyday money management, shared expenses and investment tracking together to help you stay organized and make more informed financial decisions.\n\nDownload Your Money Space and start organizing your finances today.",
+            "category": "Finance",
+            "icon": "apps/finance-app/icon.png",
+            "screenshots": [
+                "apps/finance-app/screenshots/01_Settings.jpg",
+                "apps/finance-app/screenshots/02_Home_Dashboard.jpg",
+                "apps/finance-app/screenshots/03_Investments_Portfolio.jpg",
+                "apps/finance-app/screenshots/04_Accounts.jpg",
+                "apps/finance-app/screenshots/05_Sign_In.jpg"
+            ],
+            "features": [
+                "Expense & Income Tracking",
+                "Shared Expenses & Settlements",
+                "Investment Portfolio",
+                "Budget Management",
+                "Multiple Financial Accounts",
+                "Financial Profiles",
+                "Statements & Analytics"
+            ],
+            "repo_url": "https://github.com/amideo5/finance-app",
+            "homepage": "",
+            "topics": [
+                "finance",
+                "expense-tracking",
+                "investments",
+                "budgets"
+            ],
+            "stars": 0,
+            "updated_at": "2026-11-23T00:00:00Z",
+            "release": {
+                "tag_name": "v1.0.0",
+                "name": "Your Money Space v1.0.0",
+                "body": "# Your Money Space v1.0.0\n\n## Initial Release 🚀\n\nYour Money Space is now available! Manage your everyday finances, track investments, organize accounts and manage shared expenses — all in one place.\n\n### Features\n\n- **Expense & Income Tracking:** Record, categorize and review your financial transactions.\n- **Multiple Accounts:** Organize your money across multiple financial accounts.\n- **Budget Management:** Create budgets and monitor your spending.\n- **Shared Expenses:** Split expenses, manage balances and track settlements with friends.\n- **Investment Portfolio:** Track Fixed Deposits, Recurring Deposits, Mutual Funds, stocks and other investments.\n- **Portfolio Analytics:** Review investment values, contributions and returns.\n- **Financial Profiles:** Organize different financial spaces.\n- **Statements:** Review and share financial statements where supported.\n\n### What's next?\n\nMore improvements, features and refinements are planned for future releases.\n\nThanks for trying Your Money Space!",
+                "published_at": "2026-11-23T00:00:00Z",
+                "html_url": "https://github.com/amideo5/finance-app/releases/tag/v1.0.0",
+                "assets": [
+                    {
+                        "name": "Your Money Space - Android APK",
+                        "size": 125829120,
+                        "browser_download_url": "https://github.com/amideo5/finance-app/releases/download/v1.0.0/application-02db188a-d77d-465f-909e-cf531856c109.apk",
+                        "content_type": "application/vnd.android.package-archive"
+                    },
+                    {
+                        "name": "Your Money Space - iOS IPA (Unsigned)",
+                        "size": 15938355.2,
+                        "browser_download_url": "https://github.com/amideo5/finance-app/releases/download/v1.0.0/FinanceApp-unsigned.ipa",
+                        "content_type": "application/octet-stream"
+                    }
+                ]
+            }
+        }
+    ]
+}

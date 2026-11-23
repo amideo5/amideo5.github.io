@@ -18,6 +18,7 @@ import Achievements from './components/Achievements';
 import ResumeSection from './components/ResumeViewer';
 import FinalCTA from './components/FinalCTA';
 import { EASE } from './components/fx';
+import AppStore from './store/Store';
 
 // Overlays are only needed on demand — split them out of the first load.
 const PlayIntro = lazy(() => import('./components/PlayIntro'));
@@ -38,6 +39,8 @@ function readStoredProfile(): ProfileId | null {
 }
 
 export default function App() {
+  // Store is a route within the same React/Vite application, so it works locally and on GitHub Pages.
+  if (window.location.pathname.replace(/\/+$/, '').endsWith('/store')) return <AppStore />;
   return (
     <SmoothScrollProvider>
       <Series />
