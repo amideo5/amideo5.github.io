@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: apps-json-finance-app-update
@@ -130,6 +131,7 @@ jobs:
       # COMMIT AND PUSH
       # --------------------------------------------------
       - name: Commit updated apps.json
+        id: commit
         shell: bash
         run: |
           set -euo pipefail
@@ -140,6 +142,7 @@ jobs:
           git add public/apps.json
 
           if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "apps.json has no changes."
             exit 0
           fi
@@ -148,4 +151,27 @@ jobs:
 
           git push
 
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
           echo "apps.json committed and pushed successfully."
+
+      # --------------------------------------------------
+      # TRIGGER WEBSITE DEPLOYMENT
+      # --------------------------------------------------
+      - name: Trigger GitHub Pages deployment
+        if: steps.commit.outputs.changed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          curl --fail-with-body \
+            --request POST \
+            --url https://api.github.com/repos/${{ github.repository }}/actions/workflows/deploy.yml/dispatches \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --data '{"ref":"main"}'
+
+          echo "GitHub Pages deployment triggered."
