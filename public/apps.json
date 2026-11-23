@@ -32,25 +32,25 @@
                 "budgets"
             ],
             "stars": 0,
-            "updated_at": "2026-11-23T00:00:00Z",
+            "updated_at": "2026-11-23T11:01:30Z",
             "release": {
-                "tag_name": "v1.0.0",
-                "name": "Your Money Space v1.0.0",
-                "body": "# Your Money Space v1.0.0\n\n## Initial Release 🚀\n\nYour Money Space is now available! Manage your everyday finances, track investments, organize accounts and manage shared expenses — all in one place.\n\n### Features\n\n- **Expense & Income Tracking:** Record, categorize and review your financial transactions.\n- **Multiple Accounts:** Organize your money across multiple financial accounts.\n- **Budget Management:** Create budgets and monitor your spending.\n- **Shared Expenses:** Split expenses, manage balances and track settlements with friends.\n- **Investment Portfolio:** Track Fixed Deposits, Recurring Deposits, Mutual Funds, stocks and other investments.\n- **Portfolio Analytics:** Review investment values, contributions and returns.\n- **Financial Profiles:** Organize different financial spaces.\n- **Statements:** Review and share financial statements where supported.\n\n### What's next?\n\nMore improvements, features and refinements are planned for future releases.\n\nThanks for trying Your Money Space!",
-                "published_at": "2026-11-23T00:00:00Z",
-                "html_url": "https://github.com/amideo5/finance-app/releases/tag/v1.0.0",
+                "tag_name": "v1.0.1",
+                "name": "FinanceApp v1.0.1",
+                "body": "## What's Changed\n* Added screenshots for App Store submission and updated app.json with new screenshots. by @amideo5 in https://github.com/amideo5/finance-app/pull/24\n* Add GitHub Actions workflow for mobile release by @amideo5 in https://github.com/amideo5/finance-app/pull/25\n* Improve error messages in mobile-release workflow by @amideo5 in https://github.com/amideo5/finance-app/pull/26\n* Changed workflow to build android without eas build by @amideo5 in https://github.com/amideo5/finance-app/pull/27\n* Update mobile-release.yml by @amideo5 in https://github.com/amideo5/finance-app/pull/28\n* Update mobile-release.yml by @amideo5 in https://github.com/amideo5/finance-app/pull/29\n* Update mobile-release.yml by @amideo5 in https://github.com/amideo5/finance-app/pull/30\n\n\n**Full Changelog**: https://github.com/amideo5/finance-app/compare/v1.0.0...v1.0.1",
+                "published_at": "2026-11-23T11:01:30Z",
+                "html_url": "https://github.com/amideo5/finance-app/releases/tag/v1.0.1",
                 "assets": [
                     {
-                        "name": "Your Money Space - Android APK",
-                        "size": 125829120,
-                        "browser_download_url": "https://github.com/amideo5/finance-app/releases/download/v1.0.0/application-02db188a-d77d-465f-909e-cf531856c109.apk",
-                        "content_type": "application/vnd.android.package-archive"
+                        "name": "FinanceApp-unsigned.ipa",
+                        "size": 16142312,
+                        "browser_download_url": "https://github.com/amideo5/finance-app/releases/download/v1.0.1/FinanceApp-unsigned.ipa",
+                        "content_type": "application/octet-stream"
                     },
                     {
-                        "name": "Your Money Space - iOS IPA (Unsigned)",
-                        "size": 15938355.2,
-                        "browser_download_url": "https://github.com/amideo5/finance-app/releases/download/v1.0.0/FinanceApp-unsigned.ipa",
-                        "content_type": "application/octet-stream"
+                        "name": "FinanceApp.apk",
+                        "size": 125986721,
+                        "browser_download_url": "https://github.com/amideo5/finance-app/releases/download/v1.0.1/FinanceApp.apk",
+                        "content_type": "application/vnd.android.package-archive"
                     }
                 ]
             }
