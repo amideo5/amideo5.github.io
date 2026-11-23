@@ -60,7 +60,7 @@ src/
   components/
     OpeningSequence        ← black → studio card → ARYAN → THE SERIES → portrait → ▶ PLAY
     ProfileSelector        ← "Who's watching?" (changes section order only)
-    Navbar                 ← hide-on-scroll nav, profile switcher, mobile menu
+    Navbar                 ← hide-on-scroll nav, app store link, profile switcher, mobile menu
     Hero                   ← billboard: parallax portrait, particles, light streaks, floating chips
     PlayIntro              ← ▶ Play Intro: zoom into portrait → highlight reel (pause, ← →, tap zones)
     ContinueWatching       ← cards with real "watched" progress bars

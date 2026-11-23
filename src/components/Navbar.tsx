@@ -77,6 +77,12 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
         </div>
 
         <div className="flex items-center gap-3">
+          <a
+            href="/store"
+            className="rounded-full border border-white/15 px-4 py-1.5 text-xs font-semibold tracking-[0.14em] text-bone transition hover:border-crimson-2 hover:text-crimson-2"
+          >
+            APP STORE
+          </a>
           <button
             type="button"
             onClick={() => go('contact')}
@@ -167,6 +173,15 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
                 {l.label}
               </motion.button>
             ))}
+            <motion.a
+              href="/store"
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.05 * (order.length + 2) }}
+              className="block w-full py-3 text-left font-display text-3xl tracking-wide text-bone hover:text-crimson-2"
+            >
+              App Store ↗
+            </motion.a>
           </motion.nav>
         )}
       </AnimatePresence>

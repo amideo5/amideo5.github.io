@@ -64,7 +64,7 @@ export default function AppStore() {
 
     return <div className="personal-store">
         <header className="store-head">
-            <a href="/" className="store-brand"><span className="store-mark">A</span><span>AMIDEO5<small>SOFTWARE LIBRARY</small></span></a>
+            <a href="#" className="store-brand"><span className="store-mark">A</span><span>AMIDEO5<small>SOFTWARE LIBRARY</small></span></a>
             <div className="store-head-right"><span className="store-live"><i /> PERSONAL APP STORE</span><a href="/" className="store-back">Portfolio ↗</a></div>
         </header>
 
